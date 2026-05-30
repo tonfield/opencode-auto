@@ -1,0 +1,45 @@
+{
+  // opencode-mem configuration
+  // Persistent semantic memory for AI coding agents using local vector database
+
+  "autoCaptureEnabled": true,
+  "autoCaptureLanguage": "auto",
+
+  "memory": {
+    "defaultScope": "project"
+  },
+
+  "chatMessage": {
+    "enabled": true,
+    "maxMemories": 3,
+    "excludeCurrentSession": true,
+    "injectOn": "first"
+  },
+
+  "webServerEnabled": true,
+  "webServerPort": 4747,
+
+  "showAutoCaptureToasts": false,
+  "showUserProfileToasts": false,
+  "showErrorToasts": true,
+
+  "userProfileAnalysisInterval": 10,
+  "maxMemories": 10,
+
+  "compaction": {
+    "enabled": true,
+    "memoryLimit": 10
+  },
+
+  // Use the direct DeepSeek API for memory processing.
+  // This bypasses opencode-mem's current opencode session.create path,
+  // which was failing before memories could be written.
+  "memoryProvider": "openai-chat",
+  "memoryModel": "deepseek-v4-flash",
+  "memoryApiUrl": "https://api.deepseek.com/v1",
+  "memoryApiKey": "env://DEEPSEEK_API_KEY",
+  "memoryTemperature": 0.3,
+  "memoryExtraParams": {
+    "thinking": { "type": "disabled" }
+  }
+}

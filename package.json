@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@morphllm/opencode-morph-plugin": "latest",
+    "@opencode-ai/plugin": "latest"
+  }
+}

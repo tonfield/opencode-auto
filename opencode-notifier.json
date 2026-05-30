@@ -1,0 +1,30 @@
+{
+  "sound": true,
+  "notification": false,
+  "showProjectName": true,
+  "showSessionTitle": false,
+  "command": {
+    "enabled": true,
+    "path": "/Users/ton/.config/opencode/tools/opencode-pushover.sh",
+    "args": ["{event}", "{message}", "{projectName}"],
+    "minDuration": 0
+  },
+  "events": {
+    "permission": { "sound": true, "notification": false, "command": true },
+    "complete": { "sound": true, "notification": false, "command": true },
+    "subagent_complete": { "sound": false, "notification": false, "command": false },
+    "error": { "sound": true, "notification": false, "command": true },
+    "question": { "sound": true, "notification": false, "command": true },
+    "user_cancelled": { "sound": true, "notification": false, "command": false },
+    "plan_exit": { "sound": true, "notification": false, "command": true }
+  },
+  "messages": {
+    "permission": "{projectName}: OpenCode needs permission",
+    "complete": "{projectName}: session is done and waiting for you",
+    "subagent_complete": "{projectName}: subagent finished",
+    "error": "{projectName}: session stopped with an error",
+    "question": "{projectName}: OpenCode asked a question",
+    "user_cancelled": "{projectName}: session cancelled",
+    "plan_exit": "{projectName}: plan is ready for review"
+  }
+}

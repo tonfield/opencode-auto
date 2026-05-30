@@ -1,0 +1,24 @@
+# Dependencies and generated package manager state
+node_modules/
+
+# macOS/editor noise
+.DS_Store
+*.swp
+
+# Runtime state, caches, logs, and local backups
+opencode-notifier-state.json
+*.bak
+*.backup
+*.tmp
+*.log
+.cache/
+
+# Credentials and machine-local secret material
+.env
+.env.*
+auth.json
+*.secret
+*.key
+*.pem
+id_rsa*
+id_ed25519*
