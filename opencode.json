@@ -199,7 +199,9 @@
     "@mohak34/opencode-notifier@latest",
     "@morphllm/opencode-morph-plugin",
     "opencode-background-agents@latest",
-    "opencode-snip@latest"
+    "opencode-snip@latest",
+    "opencode-agent-memory@latest",
+    "opencode-mem@latest"
   ],
 
   "agent": {
