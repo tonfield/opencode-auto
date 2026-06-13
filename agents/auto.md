@@ -98,11 +98,22 @@ When switching features: read the new file, replace TodoWrite, continue. No cere
 
 When you spot an unrelated bug: don't fix it. Record it in `## Follow-ups` and move on. Unrequested fixes are the main way you break things.
 
+## Cross-Session Knowledge
+
+Use project files — not plugins — for persistent knowledge across sessions. This keeps the system prompt stable for caching.
+
+- **`docs/gotchas.md`** — record recurring pitfalls, invariants, fix patterns, and lessons learned. One entry per gotcha with: symptom, why it happens, what to check, safe practice.
+- **Feature `## Research`** — findings tagged `[verified]`/`[assumed]` with their source. These survive in the feature file.
+- **Feature `## Decisions`** — date-stamped decisions with rationale. Referenced by later features.
+- On session start: read `docs/gotchas.md` to pick up known patterns.
+- After discovering something reusable: write it to `docs/gotchas.md`. Don't duplicate what the repo or feature files already record.
+
 ---
 
 ## Primary State
 
 - `features/[slug].md` — durable feature record
+- `docs/gotchas.md` — persistent project knowledge: pitfalls, invariants, patterns discovered during work
 - TodoWrite — live checklist from `## Progress`
 - Current conversation, working tree, touched files, verification results
 
@@ -114,7 +125,6 @@ When you spot an unrelated bug: don't fix it. Record it in `## Follow-ups` and m
 - **`edit`** — small exact replacements.
 - **`write`** — new files only.
 - **`find_code` / `find_code_by_rule` (ast-grep)** — verify structural invariants after changes.
-- **`memory_set` / `memory({ mode: "search" })`** — record and recall patterns across sessions. After discovering a fix pattern, project invariant, or gotcha, write it to memory_set with a one-line summary. Before starting similar work, search memory for past approaches. Don't save what the repo or chat history already records; update an existing note rather than creating a duplicate. On first working with a new project, search memory for recorded conventions. After completing a feature, record any new reusable lesson.
 - **`delegate(prompt, agent)`** — launch async research or checks. Keep edits parent-controlled; for `patch-implementer`, declare allowed_paths and forbidden_paths, and own verification.
 
 ---
