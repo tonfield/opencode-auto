@@ -12,7 +12,7 @@ This repository is intended to restore the opencode configuration on another Mac
 - `commands/` — custom slash commands
 - `instructions/` — shared instruction files
 - `plugins/` — local plugin code
-- `templates/` — task/workbook/docs templates
+- `templates/` — feature/docs templates
 - `tools/` — local helper scripts
 - `custom-providers.json` and `opencode-auth-env.sh` — provider/env helper setup
 - `package.json`, `package-lock.json`, and `bun.lock` — dependency lock/config files

@@ -113,8 +113,6 @@
 
   "watcher": {
     "ignore": [
-      "tasks/workbooks/**",
-      "tasks/runtime/**",
       ".workflow-config-backups/**",
       ".opencode/node_modules/**",
       "data/apps/**",
@@ -192,7 +190,7 @@
   "default_agent": "auto",
 
   "instructions": [
-    "./instructions/solo-dev-system.md",
+    "./instructions/feature-workflow.md",
     "./instructions/shell-noninteractive.md",
     "node_modules/@morphllm/opencode-morph-plugin/instructions/morph-tools.md"
   ],
@@ -209,21 +207,6 @@
       "disable": true
     },
     "auto": {
-      "mode": "primary"
-    },
-    "explore": {
-      "mode": "primary"
-    },
-    "design": {
-      "mode": "primary"
-    },
-    "plan": {
-      "disable": true
-    },
-    "stage": {
-      "mode": "primary"
-    },
-    "build": {
       "mode": "primary"
     }
   }

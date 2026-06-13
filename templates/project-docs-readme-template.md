@@ -23,7 +23,7 @@ These docs are for both:
 
 - `AGENTS.md` holds project operating rules and routing hints.
 - `docs/` holds reusable project knowledge.
-- `tasks/` holds task-local work and handoff state.
+- `features/` holds feature-local work and state.
 - The docs describe accepted current truth, not speculative design intent.
 
 ## Fast lookup
