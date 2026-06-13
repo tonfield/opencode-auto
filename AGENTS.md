@@ -142,43 +142,13 @@ What we're building and why. 2-4 sentences.
 ### 2.3 Feature lifecycle
 
 1. Create: `/feature <slug>` scaffolds the file and refreshes TodoWrite.
-2. Work: `/auto` advances the Progress checklist with Fable5 protocol.
+2. Work: The Auto agent runs the generic cycle (clarify → baseline → produce → verify → review → honesty) for every TodoWrite item, advancing the Progress checklist.
 3. Review: `/review` checks changes, appends findings to `## Issues`.
-4. Close: When Progress is fully checked, `/auto` writes the honesty block into `## Closeout`.
+4. Close: When Progress is fully checked, the agent writes the honesty block into `## Closeout`.
 
 ---
 
-## 3. Work Loop (`/auto`)
-
-When `/auto` is invoked:
-
-1. Confirm active feature from session state. If none, ask.
-2. Read feature file. Refresh TodoWrite from `## Progress`.
-3. If `## Baseline` is empty, establish it now:
-   - Run the project verifier (e.g., `uv run pytest`).
-   - Record date, verifier command, result, and commit SHA.
-4. Advance one bounded TodoWrite item:
-   - State blast radius: "low-blast, reversible" / "high-blast: touches X."
-   - Implement the change.
-   - Re-run the whole gate.
-   - Report delta in the exact format: `baseline: N tests, M failing {a,b} → now: N' tests, M' failing {x,y}`.
-   - Tag claims `[verified]` / `[assumed]` inline.
-5. If the change is material (shared interface, complex logic, new code):
-   - Invoke `reviewer` on changed files.
-   - Fix accepted material findings → update feature `## Issues`.
-   - Re-verify → report delta.
-6. Before marking a slice done, check §1.9 (model the other side):
-   - Name what still speaks the old contract. If anything is unaddressed, the slice is not done.
-7. After implementation work: output the honesty block (§1.10) in chat.
-8. If feature `## Progress` is fully checked:
-   - Run final verification.
-   - Write the honesty block into `## Closeout`.
-   - Report: feature complete.
-9. Else: update `## Progress`, report next step.
-
----
-
-## 4. Source of Truth
+## 3. Source of Truth
 
 - `features/[slug].md` is the durable record for a feature.
 - `docs/` is the shared project knowledge base (humans and AI).
@@ -187,7 +157,7 @@ When `/auto` is invoked:
 
 ---
 
-## 5. TodoWrite Conventions
+## 4. TodoWrite Conventions
 
 - Holds the current feature's work items, derived from `## Progress`.
 - Replace when switching features or session objectives.
@@ -197,7 +167,7 @@ When `/auto` is invoked:
 
 ---
 
-## 6. Review Rules
+## 5. Review Rules
 
 - Use the `reviewer` subagent for code review. It returns findings in context.
 - With an active feature, actionable findings go into `## Issues`.
@@ -206,7 +176,7 @@ When `/auto` is invoked:
 
 ---
 
-## 7. Tool & Evidence Policy
+## 6. Tool & Evidence Policy
 
 - Prefer the cheapest precise tool first: local read/search for known files, ast-grep for structural invariants, Context7 for library docs, Exa/Brave for external evidence.
 - Do not use web/MCP just because it exists. Use it when it improves evidence quality.
@@ -216,26 +186,25 @@ When `/auto` is invoked:
 
 ---
 
-## 8. Command Reference
+## 7. Command Reference
 
 | Command | Purpose |
 |---|---|
 | `/feature <slug>` | Create or switch to a feature file |
-| `/auto` | Advance feature work with Fable5 protocol |
 | `/review [--files ...]` | Ephemeral review; with feature, findings → Issues |
 | `/optimize <prompt>` | Audit requirements, optimize prompt, execute |
 | `/init` | Bootstrap project AGENTS.md + docs skeleton |
 
 ---
 
-## 9. Agent Surface
+## 8. Agent Surface
 
 - **Auto** is the only primary agent. It handles everything: feature creation, research, implementation, verification, review.
 - Subagents: `reviewer`, `repo-search`, `docs-research`, `evidence-verifier`, `patch-implementer`, `test-triage`, `regression-reviewer`.
 
 ---
 
-## 10. Standing Pre-Send Check
+## 9. Standing Pre-Send Check
 
 Before sending any non-trivial response, re-read your output once:
 
