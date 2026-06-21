@@ -1,24 +1,16 @@
-# Dependencies and generated package manager state
 node_modules/
-
-# macOS/editor noise
-.DS_Store
-*.swp
-
-# Runtime state, caches, logs, and local backups
-opencode-notifier-state.json
-*.bak
-*.backup
-*.tmp
+.bun.lock
+*.jsonc
+*.json.bak
 *.log
-.cache/
+.DS_Store
+opencode-notifier-state.json
 
-# Credentials and machine-local secret material
-.env
-.env.*
-auth.json
-*.secret
-*.key
-*.pem
-id_rsa*
-id_ed25519*
+# BEGIN opencode feature surfaces
+# Root feature files are local state for this config repo — not tracked here.
+# Downstream project repos initialized from project/ may track feature markdown;
+# the init command recommends adding exceptions there:
+#   !features/
+#   !features/*.md
+features/
+# END opencode feature surfaces

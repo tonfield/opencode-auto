@@ -23,5 +23,3 @@ OpenCode shell commands run without an interactive TTY. Any command that waits f
 
 - After shell output, continue to the next safe verification or repair step when the task is not complete.
 - Stop and ask only when the next action needs a human/product decision, credentials, destructive approval, or a larger workflow.
-
-Long command examples and historical rationale are archived at `./instructions/reference/shell-strategy-reference.md`.

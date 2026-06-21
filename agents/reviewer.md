@@ -49,6 +49,8 @@ Process:
    - `performance` — avoidable latency, memory, scaling, repeated work
    - `maintainability` — confusing structure, fragile coupling, hard-to-change design
    - `structure` — AST-detectable anti-patterns (bare excepts, missing error logging, inconsistent patterns)
+   - `regression` — behavior regressions, caller/API compatibility, data-shape/persistence/migration breakage, concurrency/cleanup/lifecycle risks, docs/config drift (covers what a dedicated regression reviewer would check)
+   - `test-failure` — analyze focused test/lint/build failure output or logs supplied by the caller, explain root cause, name the minimal fix (use when the caller pastes failing output rather than asking for a diff review)
    - `challenge` — adversarial check of assumptions, edge cases, and rollback paths (HIGH risk only)
 3. Prefer 1-5 material findings. Omit low-signal notes.
 4. Match depth to risk: LOW stays narrow, MEDIUM covers gating risks, HIGH adds explicit risk/regression/challenge coverage.

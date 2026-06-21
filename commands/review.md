@@ -21,11 +21,14 @@ Behavior:
    - risk profile: LOW/MEDIUM/HIGH, default MEDIUM
 3. Return findings in chat.
 4. If an active feature exists and findings are actionable:
-   - Append each material finding to feature `## Issues`:
-     ```
-     - [ ] [summary] — severity: low/medium/high — status: open
-     ```
-   - If findings affect feature readiness, update `## Progress`.
+    - Upsert each material finding in feature `## Issues` by the reviewer's stable match key: update the existing issue when the match key is already present; append only new match keys.
+    - Preserve the reviewer's severity vocabulary:
+       ```
+       - [ ] `[match-key]` [summary] — severity: blocking|high|advisory|note — status: open
+       ```
+    - Do not update `## Progress` directly. Auto owns accepting/rejecting findings, applying fixes, and marking progress only after re-verification.
+    - Do not update `## Delegation Plan`; Auto owns lane planning.
+    - If the feature uses `## Subagent Receipts`, Auto may record the accepted review result there after checking scope and acting on material findings.
 5. Standalone reviews (no active feature) stay in chat only.
 
 Outcomes:

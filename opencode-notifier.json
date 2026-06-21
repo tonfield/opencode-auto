@@ -22,7 +22,10 @@
     "error": { "sound": true, "notification": false, "command": true },
     "question": { "sound": true, "notification": false, "command": true },
     "user_cancelled": { "sound": true, "notification": false, "command": false },
-    "plan_exit": { "sound": true, "notification": false, "command": true }
+    "plan_exit": { "sound": true, "notification": false, "command": true },
+    "session_started": { "sound": false, "notification": false, "command": false },
+    "user_message": { "sound": false, "notification": false, "command": false },
+    "client_connected": { "sound": false, "notification": false, "command": false }
   },
   "messages": {
     "permission": "{projectName}: OpenCode needs permission",

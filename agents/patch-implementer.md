@@ -2,7 +2,6 @@
 description: Executes one tightly bounded code or file change for the Auto parent.
 mode: subagent
 hidden: true
-model: openai/gpt-5.3-codex
 steps: 20
 temperature: 0.1
 permission:

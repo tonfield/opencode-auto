@@ -1,6 +1,13 @@
 {
   "dependencies": {
-    "@morphllm/opencode-morph-plugin": "latest",
-    "@opencode-ai/plugin": "latest"
+    "@mohak34/opencode-notifier": "0.2.8",
+    "@morphllm/opencode-morph-plugin": "2.0.13",
+    "@opencode-ai/plugin": "1.17.7",
+    "opencode-background-agents": "0.1.1",
+    "opencode-snip": "1.6.1"
+  },
+  "overrides": {
+    "diff": "9.0.0",
+    "uuid": "11.1.1"
   }
 }
